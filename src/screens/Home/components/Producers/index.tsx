@@ -20,12 +20,10 @@ export default function Producers({top: Top}) {
   }, []);
   return (
     <FlatList
-      data={producers.sort(function (a, b) {
-        if (a.name < b.name) return -1;
-        if (a.name > b.name) return 1;
-        return 0;
+      data={producers.sort(function (a: any, b: any) {
+        return a.name > b.name ? 1 : a.name < b.name ? -1 : 0;
       })}
-      renderItem={({item}) => <Producer {...item} />}
+      renderItem={({item}: any) => <Producer {...item} />}
       keyExtractor={({name}) => name}
       ListHeaderComponent={topList}
     />
